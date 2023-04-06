@@ -8,9 +8,8 @@ CREATE TABLE "brand"
     "id"   UUID PRIMARY KEY
         DEFAULT uuid_generate_v4(),
     "name" TEXT UNIQUE NOT NULL
-        CONSTRAINT brand__name CHECK (brand.name SIMILAR TO '[- A-Za-zА-ЯЁёа-я0-9]{4,50}')
+        CONSTRAINT brand__name CHECK (brand.name SIMILAR TO '[- A-Za-zА-ЯЁёа-я0-9]{1,50}')
 );
-
 
 CREATE TABLE "client"
 (
@@ -22,7 +21,7 @@ CREATE TABLE "client"
         CONSTRAINT client__surname CHECK (client.surname SIMILAR TO '[А-ЯЁ][а-яё]{1,49}'),
     "second_name"  TEXT
         CONSTRAINT client__second_name CHECK (client.second_name SIMILAR TO '[А-ЯЁ][а-яё]{4,49}'),
-    "client_name"  TEXT NOT NULL
+    "client_name"  TEXT NULL
         CONSTRAINT client__client_name CHECK (client.client_name SIMILAR TO '[- 0-9A-Za-zА-ЯЁёа-я]{2,50}'),
     "address"      TEXT
         CONSTRAINT client__address CHECK (client.address SIMILAR TO '[- А-ЯЁёа-я0-9«»"".,]{10,150}'),
@@ -32,7 +31,8 @@ CREATE TABLE "client"
 
 CREATE TABLE "color"
 (
-    "id"         UUID PRIMARY KEY,
+    "id"         UUID PRIMARY KEY
+        DEFAULT uuid_generate_v4(),
     "color_name" TEXT UNIQUE NOT NULL
         CONSTRAINT color__color_name CHECK (color.color_name SIMILAR TO '([А-ЯЁ][-а-яё]{3,49})|(#[0-9a-f]{6})')
 );
@@ -58,9 +58,9 @@ CREATE TABLE "employee"
     "passport_code"    TEXT NOT NULL
         CONSTRAINT employee__passport_code CHECK (employee.passport_code SIMILAR TO '[0-9]{10}'),
     "position_at_work" TEXT NOT NULL
-        CONSTRAINT employee__position_at_work CHECK (employee.position_at_work SIMILAR TO '[А-Я][а-я]{4,49}'),
-    "rank"             TEXT NOT NULL
-        CONSTRAINT employee__rank CHECK (employee.rank SIMILAR TO '[А-Я][а-я]{4,49}')
+        CONSTRAINT employee__position_at_work CHECK (employee.position_at_work SIMILAR TO '[ А-Я а-я0-9-]{4,50}'),
+    "rank"             TEXT
+        CONSTRAINT employee__rank CHECK (employee.rank SIMILAR TO '[ А-Яа-я0-9-]{4,50}')
 );
 
 CREATE TABLE "model"
@@ -68,7 +68,7 @@ CREATE TABLE "model"
     "id"              UUID PRIMARY KEY
         DEFAULT uuid_generate_v4(),
     "name"            TEXT UNIQUE      NOT NULL
-        CONSTRAINT model__name CHECK (model.name SIMILAR TO '[- A-Za-zА-Яа-я0-9]{10,100}'),
+        CONSTRAINT model__name CHECK (model.name SIMILAR TO '[- A-Za-zА-Яа-я0-9]{3,100}'),
     "engine_capacity" DOUBLE PRECISION NOT NULL
         CONSTRAINT model__engine_capacity CHECK (model.engine_capacity > 0.1 AND model.engine_capacity < 10.0),
     "max_speed"       DOUBLE PRECISION NOT NULL
@@ -92,7 +92,7 @@ CREATE TABLE "car"
     "trailer_number"            TEXT NOT NULL
         CONSTRAINT car__trailer_number CHECK (car.trailer_number SIMILAR TO '[A-Z0-9]{9,12}'),
     "engine_model"              TEXT NOT NULL
-        CONSTRAINT car__engine_model CHECK (car.engine_model SIMILAR TO '[- A-Za-zа-яА-Я0-9]{5,100}'),
+        CONSTRAINT car__engine_model CHECK (car.engine_model SIMILAR TO '[- A-Za-zа-яА-Я0-9/]{5,100}'),
     "number_technical_passport" TEXT NOT NULL
         CONSTRAINT car__number_technical_passport CHECK (car.number_technical_passport SIMILAR TO '[0-9]{2}[A-Z]{2}[0-9]{6}'),
     "year_of_release"           DATE NOT NULL
@@ -238,3 +238,4 @@ ALTER TABLE "cheque"
 --
 -- ALTER TABLE "contact"
 --     ADD CONSTRAINT "fk_contact__consumer_company" FOREIGN KEY ("consumer_company") REFERENCES "consumercompany" ("id") ON DELETE SET NULL
+
