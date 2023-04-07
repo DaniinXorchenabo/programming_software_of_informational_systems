@@ -5,60 +5,52 @@ random.shuffle(a1)
 print(a1[:10])
 
 a = """
-Audi A7 / S7 / RS7
-Audi A8 / S8
-Audi Q3 / RS Q3
-Audi Q5 / SQ5
-Audi Q7 / SQ7
-ВАЗ 2101
-ВАЗ 2102
-ВАЗ 2103
-ВАЗ 2104
-ВАЗ 2105
-BMW 6-Series
-BMW 7-Series
-BMW X1
-BMW X3
-BMW X4
-Daewoo Lacetti
-Daewoo Lanos
-Daewoo Matiz
-Daewoo Nexia
-Daewoo Sens
-Opel Antara
-Opel Astra
-Opel Calibra
-Opel Corsa
-Opel Insignia
-Opel Frontera
-Suzuki Grand Vitara
-Suzuki Jimny
-Suzuki Swift
-Suzuki SX4
-Suzuki Vitara/Escudo
-Mercedes-Benz 190
-Mercedes-Benz A-Class
-Mercedes-Benz B-Class
-Mercedes-Benz C-Class
-Mercedes-Benz CL-Class
-Toyota 4Runner
-Toyota AE86
-Toyota Avalon
-Toyota Avensis
-Toyota Caldina
-Toyota Camry
-KIA Ceed
-KIA Cerato
-KIA Optima
-KIA Picanto
-KIA Rio
-KIA Rio X-Line
-KIA Sorento
-KIA Soul
-KIA Spectra
+M102
+M111
+M166
+M254
+M260
+M264
+M266
+M270
+M271
+M274
+M282
+EA113
+CMBA
+CXSA
+CZCA
+CZDA
+CZEA
+TFSI
+DADA
+AEH
+AHL
+AKL
+ALZ
+ANA
+APF
+ARM
+AVU
+BFQ
+BGU
+BSE
+BSF
+ВАЗ-11182
+ВАЗ-11183
+ВАЗ-11186
+ВАЗ-11189
+ВАЗ-11194
+ВАЗ-21114
+ВАЗ-21116
+ВАЗ-21124
+ВАЗ-21126
+ВАЗ-21127
+ВАЗ-21128
+ВАЗ-21129
 """
 a1 = a.split('\n')
-print("('"+("'),\n('".join([i for i in a1 if bool(i)])) + "')")
+print("('"+("'),\n('".join([i.strip() for i in a1 if bool(i)])) + "')")
 a = '''
 Александр
 Дмитрий
