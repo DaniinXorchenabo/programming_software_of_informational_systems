@@ -6,6 +6,14 @@ BEGIN
 END;
 $$ language 'plpgsql' STRICT;
 
+CREATE OR REPLACE FUNCTION random_between_f(low float4, high float4)
+    RETURNS numeric AS
+$$
+BEGIN
+    RETURN cast((random() * (high - low + 1) + low) as numeric) ;
+END;
+$$ language 'plpgsql' STRICT;
+
 CREATE OR REPLACE FUNCTION random_string(len_ int, dataset text)
     returns text as
 $$
@@ -45,7 +53,6 @@ BEGIN
 end ;
 $$ language 'plpgsql' STRICT;
 
-
 CREATE OR REPLACE FUNCTION customize_random()
     returns float4 as
 $$
@@ -83,16 +90,16 @@ VALUES ('#ff00ff'),
        ('Фиолетовый'),
        ('Хаки');
 INSERT INTO model (name, engine_capacity, max_speed, count_of_doors, number_of_seats)
-VALUES ('Maruti-Suzuki', 0.9, 180.0, 4, 5)
-     , ('Xiaopeng', 0.9, 180.0, 4, 5)
-     , ('Geely', 0.9, 180.0, 4, 5)
-     , ('ZSD', 0.9, 180.0, 4, 5)
-     , ('КаВЗ', 0.9, 180.0, 4, 5)
-     , ('Pierce-Arrow', 0.9, 180.0, 4, 5)
-     , ('Westfalia', 0.9, 180.0, 4, 5)
-     , ('BJEV', 0.9, 180.0, 4, 5)
-     , ('Diatto', 0.9, 180.0, 4, 5)
-     , ('MOST', 0.9, 180.0, 4, 5);
+VALUES ('Maruti-Suzuki', round (random_between_f(0.1, 9.9), 2), round(random_between_f(150.0, 590.0), 0), 5, 4)
+     , ('Xiaopeng', round(random_between_f(0.1, 9.9), 2), round(random_between_f(150.0, 590.0), 0), 5, 4)
+     , ('Geely', round(random_between_f(0.1, 9.9), 2), round(random_between_f(150.0, 590.0), 0), 5, 4)
+     , ('ZSD', round(random_between_f(0.1, 9.9), 2), round(random_between_f(150.0, 590.0), 0), 5, 4)
+     , ('КаВЗ', round(random_between_f(0.1, 9.9), 2), round(random_between_f(150.0, 590.0), 0), 5, 4)
+     , ('Pierce-Arrow', round(random_between_f(0.1, 9.9), 2), round(random_between_f(150.0, 590.0), 0), 5, 4)
+     , ('Westfalia', round(random_between_f(0.1, 9.9), 2), round(random_between_f(150.0, 590.0), 0), 5, 4)
+     , ('BJEV', round(random_between_f(0.1, 9.9), 2), round(random_between_f(150.0, 590.0), 0), 5, 4)
+     , ('Diatto', round(random_between_f(0.1, 9.9), 2), round(random_between_f(150.0, 590.0), 0), 5, 4)
+     , ('MOST', round(random_between_f(0.1, 9.9), 2), round(random_between_f(150.0, 590.0), 0), 5, 4);
 INSERT INTO car
 SELECT uuid_generate_v4()                                        as id,
        b_.id                                                     as brand,
