@@ -1,0 +1,15 @@
+INSERT INTO public.brand (id, name) VALUES ('ac5514b1-3ceb-43aa-bd78-3fc291aeb8a0', 'Волга');
+INSERT INTO public.brand (id, name) VALUES ('2a35ab97-7ac6-442a-b1a4-d2961947bcda', 'BMW');
+INSERT INTO public.brand (id, name) VALUES ('13a88a0d-ab05-45b3-9f96-cb73254174b0', 'Ford');
+INSERT INTO public.brand (id, name) VALUES ('ed2446d5-b747-4928-b3ce-a88531292c3a', 'Honda');
+INSERT INTO public.brand (id, name) VALUES ('66071d1f-672e-4f0b-b041-b280727dc2f5', 'Hyundai');
+INSERT INTO public.brand (id, name) VALUES ('dea8735e-b53a-4d17-b6b8-c6792a89bf72', 'Kia');
+INSERT INTO public.brand (id, name) VALUES ('9da423c2-9612-4962-a58a-2ef65491ce66', 'Mercedes-Benz');
+INSERT INTO public.brand (id, name) VALUES ('13a202ca-1de7-4317-86f0-da22ef965d1e', 'Mitsubishi');
+INSERT INTO public.brand (id, name) VALUES ('ae2c80ee-2630-4255-81bb-b38bd5246f7f', 'Nissan');
+INSERT INTO public.brand (id, name) VALUES ('3daa149e-ae72-486c-b1f0-48bd20a06822', 'Renault');
+INSERT INTO public.brand (id, name) VALUES ('bea20173-3651-4715-92c5-962956c32c5e', 'Skoda');
+INSERT INTO public.brand (id, name) VALUES ('1ff7abd9-a702-4532-9c8b-029adf40f546', 'Toyota');
+INSERT INTO public.brand (id, name) VALUES ('ce7c440d-0705-49ce-8def-bbaca5d0a6ca', 'Volkswagen');
+INSERT INTO public.brand (id, name) VALUES ('f8ba8606-4c3a-48a9-a60e-74fdb3726c81', 'Acura');
+INSERT INTO public.brand (id, name) VALUES ('9b2f5f5c-2287-4dcd-b948-a5ef69f6555a', 'Audi');

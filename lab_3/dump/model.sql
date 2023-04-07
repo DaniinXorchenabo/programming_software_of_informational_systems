@@ -1,0 +1,10 @@
+INSERT INTO public.model (id, name, engine_capacity, max_speed, count_of_doors, number_of_seats) VALUES ('09d6d8ad-ed43-4b60-8e02-69df6697a8fe', 'Maruti-Suzuki', 0.9, 180, 4, 5);
+INSERT INTO public.model (id, name, engine_capacity, max_speed, count_of_doors, number_of_seats) VALUES ('278fb830-9b9e-45e3-a13d-ccad8e62d970', 'Xiaopeng', 0.9, 180, 4, 5);
+INSERT INTO public.model (id, name, engine_capacity, max_speed, count_of_doors, number_of_seats) VALUES ('cf235c75-0bbf-418e-94f7-1f1efff15a06', 'Geely', 0.9, 180, 4, 5);
+INSERT INTO public.model (id, name, engine_capacity, max_speed, count_of_doors, number_of_seats) VALUES ('2447be4a-1099-4d8a-97f6-a2a4766abc4a', 'ZSD', 0.9, 180, 4, 5);
+INSERT INTO public.model (id, name, engine_capacity, max_speed, count_of_doors, number_of_seats) VALUES ('bc21fb5d-344a-46ca-87eb-96d456773475', 'КаВЗ', 0.9, 180, 4, 5);
+INSERT INTO public.model (id, name, engine_capacity, max_speed, count_of_doors, number_of_seats) VALUES ('3d5b2ded-9776-4278-9fdc-9ef584e48726', 'Pierce-Arrow', 0.9, 180, 4, 5);
+INSERT INTO public.model (id, name, engine_capacity, max_speed, count_of_doors, number_of_seats) VALUES ('31c3b876-751d-44db-be67-40326af1ce90', 'Westfalia', 0.9, 180, 4, 5);
+INSERT INTO public.model (id, name, engine_capacity, max_speed, count_of_doors, number_of_seats) VALUES ('9d12f835-4896-49f8-953e-cfc37acbb3c4', 'BJEV', 0.9, 180, 4, 5);
+INSERT INTO public.model (id, name, engine_capacity, max_speed, count_of_doors, number_of_seats) VALUES ('1e3e8008-0dd7-4c04-a567-c1736ca02ed5', 'Diatto', 0.9, 180, 4, 5);
+INSERT INTO public.model (id, name, engine_capacity, max_speed, count_of_doors, number_of_seats) VALUES ('14753ca4-9d61-4b6d-9249-7430c90550cc', 'MOST', 0.9, 180, 4, 5);

@@ -1,0 +1,10 @@
+INSERT INTO public.color (id, color_name) VALUES ('b59cb38d-2872-44c4-9034-eb9dc4786a54', '#ff00ff');
+INSERT INTO public.color (id, color_name) VALUES ('eb22ef19-1b96-4e64-b091-c9c7da74d459', 'Чёрный');
+INSERT INTO public.color (id, color_name) VALUES ('1da759c3-d070-4163-a243-aae814e26894', 'Белый');
+INSERT INTO public.color (id, color_name) VALUES ('207fab97-f317-40e6-abdb-6544f6084273', 'Тёмно-красный');
+INSERT INTO public.color (id, color_name) VALUES ('dee0150a-9ad6-48fd-8622-754f5b56bf13', 'Зелёный');
+INSERT INTO public.color (id, color_name) VALUES ('7f458b6d-26ee-4444-9c27-f84c1dd1b0ec', 'Синий');
+INSERT INTO public.color (id, color_name) VALUES ('2fd31748-3e47-4643-b829-223c2793594e', 'Голубой');
+INSERT INTO public.color (id, color_name) VALUES ('6afbfa60-db59-45df-b998-cf447db82cf0', 'Красный');
+INSERT INTO public.color (id, color_name) VALUES ('f4b90976-9af8-4b75-99cf-f011202e1e9f', 'Фиолетовый');
+INSERT INTO public.color (id, color_name) VALUES ('f2d60429-2470-49d6-9a20-5fa729307d07', 'Хаки');
