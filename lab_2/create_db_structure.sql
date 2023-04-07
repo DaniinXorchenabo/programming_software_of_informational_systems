@@ -92,7 +92,7 @@ CREATE TABLE "car"
     "trailer_number"            TEXT NOT NULL
         CONSTRAINT car__trailer_number CHECK (car.trailer_number SIMILAR TO '[A-Z0-9]{9,12}'),
     "engine_model"              TEXT NOT NULL
-        CONSTRAINT car__engine_model CHECK (car.engine_model SIMILAR TO '[- A-Za-zа-яА-Я0-9/]{5,100}'),
+        CONSTRAINT car__engine_model CHECK (car.engine_model SIMILAR TO '[- A-Za-zа-яА-Я0-9/]{1,100}'),
     "number_technical_passport" TEXT NOT NULL
         CONSTRAINT car__number_technical_passport CHECK (car.number_technical_passport SIMILAR TO '[0-9]{2}[A-Z]{2}[0-9]{6}'),
     "year_of_release"           DATE NOT NULL
