@@ -60,21 +60,6 @@ from car
          left outer join model m on m.id = car.model
 where c2.firstname LIKE 'Е%'
 group by car.id, b.name, m.name;
---
--- select *
--- from (select cl1_.id as id,
---              cl1_.firstname,
---              cl1_.surname,
---              cl2_.firstname,
---              cl2_.surname
---       from client as cl1_
---                inner join client cl2_ on cl2_.firstname = cl1_.firstname
---           and cl2_.id != cl1_.id) as sub_
--- ;
---
--- select  _cl1.id as id, _cl1.firstname as firstname
---       from client as _cl1
---                inner join cheque ch1_ on ch1_.client = _cl1.id;
 
 --5.	Вывести автомобили, которые были куплены тёзками (одинаковые имена). (select в select)
 select distinct on (c.id) b.name,
@@ -117,14 +102,10 @@ where date_part('year', (now())) - date_part('year', (e.date_of_birth)) > 50
 group by e.id;
 
 -- 7.	Вывести покупателей автомобилей, которые были произведены раньше 2005 года. (дата)
-SELECT
---     c.year_of_release,
-firstname,
-second_name,
-surname
+SELECT firstname,
+       second_name,
+       surname
 from client
--- right join cheque c3 on client.id = c3.client
--- left join car c on c.id = c3.car
 where client.id = any (select c2.id
                        from car
                                 right outer join cheque c on car.id = c.car
@@ -141,8 +122,3 @@ where char_length(c.color_name) = (select max(char_length(col_.color_name))
                                    from color as col_
                                             right join public.car c2 on col_.id = c2.color);
 
--------------------
-SELECT max(max_speed)
-from model
-         right join car car_2 on model.id = car_2.model
-         right join cheque c on car_2.id = c.car
