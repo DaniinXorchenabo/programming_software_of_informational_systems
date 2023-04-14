@@ -25,6 +25,7 @@ $$;
 
 select get_max_engine_capacity_for_client('Кирилл'::text, 'Романович'::text, 'Захаров'::text);
 
+
 -- Функция, возвращающая таблицу
 CREATE or replace FUNCTION only_named_colors() RETURNS SETOF color AS
 $$
@@ -32,9 +33,12 @@ SELECT *
 FROM color
 WHERE color_name not like '#%';
 $$ LANGUAGE SQL;
+
 drop function only_named_colors;
+
 select *
 from only_named_colors();
+
 
 -- Многооператорная функция, возвращающая таблицу
 CREATE or replace FUNCTION employee_stats()
@@ -67,6 +71,8 @@ group by sub.firstname,
 HAVING AVG(sub.count) > 0
 order by stat_data desc
 $$ LANGUAGE SQL;
+
 drop function employee_stats;
+
 select * from employee_stats();
 

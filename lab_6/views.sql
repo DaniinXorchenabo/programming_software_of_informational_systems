@@ -1,4 +1,4 @@
--- Необновляемое представление
+-- Обновляемое представление
 CREATE or replace VIEW sellers AS
 SELECT firstname,
        second_name,
@@ -17,7 +17,7 @@ SELECT *
 FROM sellers;
 
 update sellers
-set rank = '1 разряд'
+set rank = '2 разряд'
 where firstname = 'Михаил'
 returning *;
 
@@ -49,9 +49,10 @@ select count(*)   as count,
                1) as date
 from cheque
 group by date_part('year', date_of_sale), date_part('month', date_of_sale)
-order by date desc
-;
+order by date desc;
+
 drop view prises_count;
+
 select *
 from prises_count;
 update private_client
@@ -76,8 +77,7 @@ from cheque
          left join brand b on c.brand = b.id
          left join color c2 on c2.id = c.color
          left outer join employee e on e.id = cheque.employee
-         left join client c3 on cheque.client = c3.id
-;
+         left join client c3 on cheque.client = c3.id;
 drop view final_data_cheque;
 
 select *
