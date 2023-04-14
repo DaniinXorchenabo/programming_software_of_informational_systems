@@ -1,3 +1,4 @@
+-- (добавление) Добавляет цвет, если его ещё нет
 create or replace procedure add_colors(
     IN color_name_ text = 'Белый',
     IN other_color_name text = '#ffffff',
@@ -24,6 +25,7 @@ drop procedure add_colors;
 
 CALL add_colors('Серый', '#666666', null);
 
+-- (Изменение) Изменяет цвет
 create or replace procedure mod_color(
     IN color_name_ text = 'Белый',
     IN other_color_name text = '#ffffff',
@@ -75,6 +77,8 @@ drop procedure mod_color;
 
 call mod_color('Серый', '#666666', 'Светло-серый');
 
+
+-- (Удаление) Удаляет цвет
 create or replace procedure del_color(
     IN color_name_ text = 'Белый',
     IN other_color_name text = '#ffffff',
@@ -106,29 +110,32 @@ drop procedure del_color;
 call del_color('Серый', '#666666', null);
 
 
-create or replace procedure add_one_rank(
-    in new_passport_code text
-)
-    LANGUAGE plpgsql
-AS
-$$
-declare
-begin
-    update employee
-    set rank = cast(
-                       (CASE
-                            WHEN cast(split_part(rank, ' ', 1) as int8) < 5
-                                then cast(split_part(rank, ' ', 1) as int8) + 1
-                            else cast(split_part(rank, ' ', 1) as int8)
-                           end)
-                   as text) || ' ' || split_part(rank, ' ', 2)
-    where passport_code = new_passport_code;
-end;
-$$;
+-- create or replace procedure add_one_rank(
+--     in new_passport_code text
+-- )
+--     LANGUAGE plpgsql
+-- AS
+-- $$
+-- declare
+-- begin
+--     update employee
+--     set rank = cast(
+--                        (CASE
+--                             WHEN cast(split_part(rank, ' ', 1) as int8) < 5
+--                                 then cast(split_part(rank, ' ', 1) as int8) + 1
+--                             else cast(split_part(rank, ' ', 1) as int8)
+--                            end)
+--                    as text) || ' ' || split_part(rank, ' ', 2)
+--     where passport_code = new_passport_code;
+-- end;
+-- $$;
 
-drop procedure add_one_rank;
-call add_one_rank('7488357223');
+-- drop procedure add_one_rank;
+-- call add_one_rank('7488357223');
 
+
+-- (Вычисление) Вычисляет средее количество продаж за один месяц
+-- для одного сотрудника и выводит лучшее
 create or replace procedure emp_stat(
     inout user_data float4
 )
@@ -173,8 +180,3 @@ $$;
 drop procedure emp_stat;
 
 call emp_stat(null);
-
-
-
-
-
